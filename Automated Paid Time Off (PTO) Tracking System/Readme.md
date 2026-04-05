@@ -32,21 +32,18 @@ I started by designing a 3-tier relational database structure in Airtable to act
 
 **The Managers Table:** Created to store the hierarchical approvers for the company, capturing the Manager's Name and Email Address.
 
-![Place holder of the image](assets/figure-2.png)
+![Figure 2: The Managers table establishing the organizational hierarchy.](https://github.com/Fabelt14/AI-Automation/blob/main/Automated%20Paid%20Time%20Off%20(PTO)%20Tracking%20System/Images/Figure%202_The%20Managers%20table.jpg)
 *Figure 2: The Managers table establishing the organizational hierarchy.*
 
 **The Employees Table:** This serves as the core "anchor" of the system. I configured Lookup fields to pull the respective manager's email (Hop 1) and utilized Rollup fields combined with conditional filtering (`Status = Approved`) to automatically calculate "Used PTO". A secondary Formula field continuously calculates the "Remaining PTO".
 
-![Place holder of the image](assets/figure-3.png)
+![Figure 3: The Employees table showcasing the dynamic Rollup and Formula fields for PTO balances](https://github.com/Fabelt14/AI-Automation/blob/main/Automated%20Paid%20Time%20Off%20(PTO)%20Tracking%20System/Images/Figure%203_The%20Employees%20table.png)
 *Figure 3: The Employees table showcasing the dynamic Rollup and Formula fields for PTO balances.*
 
 **The PTO Requests Table:** This transactional table logs every individual time-off request. I engineered a Formula field to calculate the exact number of working days between the `Start Date` and `End Date`. A secondary Lookup field isolates the Manager's Email to serve as the destination payload for the Zapier webhook.
 
-![Place holder of the image](assets/figure-1.png)
+![Figure 1: The main PTO Requests transactional table.](https://github.com/Fabelt14/AI-Automation/blob/main/Automated%20Paid%20Time%20Off%20(PTO)%20Tracking%20System/Images/Figure%201_The%20main%20PTO%20Requests%20transactional%20table.jpg)
 *Figure 1: The main PTO Requests transactional table.*
-
-![Place holder of the image](assets/figure-4.png)
-*Figure 4: PTO Request table showing approval statuses and linked records.*
 
 ### Step 2: Designing the Self-Serve Employee Portal
 
@@ -55,7 +52,7 @@ To ensure data integrity, employees should not have raw access to the backend da
 **Process:**
 The form requires the employee to select their profile, input their requested dates, and provide a comment. Upon submission, the database creates a new record, calculates the requested days, and sets the default status to "Pending".
 
-![Place holder of the image](assets/figure-9.png)
+![Figure 9: Form filled and submitted by employee who requested for a time off.](https://github.com/Fabelt14/AI-Automation/blob/main/Automated%20Paid%20Time%20Off%20(PTO)%20Tracking%20System/Images/Figure%209_Form%20filled%20and%20submitted%20by%20employee%20who%20requested%20for%20a%20time%20off.jpg)
 *Figure 9: Form filled and submitted by employee who requested for a time off.*
 
 ### Step 3: Configuring the Manager Notification Engine (Zapier)
@@ -70,10 +67,10 @@ Using a 15-minute polling trigger in Zapier serves as a natural batching mechani
 2. **Action:** Gmail `Send Email`.
 3. **Payload:** The "To" address was dynamically mapped to the `Manager's Email` Lookup field. The body was constructed using dynamic variables (`[Employee Name]`, `[Start Date]`, `[End Date]`, `[Requested Days]`, and `[Employee's Comment]`).
 
-![Place holder of the image](assets/figure-5.png)
+![Figure 5: Zapier configuration mapping dynamic variables into the manager notification email](https://github.com/Fabelt14/AI-Automation/blob/main/Automated%20Paid%20Time%20Off%20(PTO)%20Tracking%20System/Images/Figure%205_Zapier%20configuration%20mapping%20variables%20into%20the%20manager%20notification%20email.jpg)
 *Figure 5: Zapier configuration mapping dynamic variables into the manager notification email.*
 
-![Place holder of the image](assets/figure-6.png)
+![Figure 6: The automated notification as received in the Manager's corporate inbox](https://github.com/Fabelt14/AI-Automation/blob/main/Automated%20Paid%20Time%20Off%20(PTO)%20Tracking%20System/Images/Figure%206_The%20automated%20notification%20as%20received%20in%20the%20Manager's%20corporate%20inbox..jpg)
 *Figure 6: The automated notification as received in the Manager's corporate inbox.*
 
 ### Step 4: Configuring the Employee Status Update Engine (Airtable Automations)
@@ -88,10 +85,10 @@ Once a manager makes a decision (Approves or Declines), the employee requires im
 2. **Action:** Airtable Native `Send Email`.
 3. **Payload:** The email includes the updated status, the requested dates, and the specific notes left by the manager.
 
-![Place holder of the image](assets/figure-7.png)
+![Figure 7: Airtable's internal automation logic for instant employee updates.](https://github.com/Fabelt14/AI-Automation/blob/main/Automated%20Paid%20Time%20Off%20(PTO)%20Tracking%20System/Images/Figure%207_Airtable's%20internal%20automation%20logic%20for%20instant%20employee%20updates.jpg)
 *Figure 7: Airtable's internal automation logic for instant employee updates.*
 
-![Place holder of the image](assets/figure-8.png)
+![Figure 8: The zero-latency status update received by the employee upon approval](https://github.com/Fabelt14/AI-Automation/blob/main/Automated%20Paid%20Time%20Off%20(PTO)%20Tracking%20System/Images/Figure%208_The%20zero-latency%20status%20update%20received%20by%20the%20employee%20upon%20approval..jpg)
 *Figure 8: The zero-latency status update received by the employee upon approval.*
 
 ## Future Improvements
@@ -103,5 +100,6 @@ To scale this application for enterprise use, the following features are slated 
 3. **Manager Dashboard (Airtable Interfaces):** Build a dedicated Interface specifically for managers to view and approve requests via a clean, restricted GUI without touching the raw database grid.
 4. **Slack/Teams Integration:** Swap the Zapier Gmail action for a Slack/Teams Webhook, sending interactive approval buttons directly to a manager's direct messages.
 
+[Click to see the Airtable View Here](https://airtable.com/app7u5KsPSHwWUoLj/shrVFhtRGTGZAMQO0)
 ---
 *Built by **Asekun Fatai** — Open to roles in Business Automation, Workflow Engineering, and Operations.*
