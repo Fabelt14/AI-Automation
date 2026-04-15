@@ -13,7 +13,7 @@ The core engine of this system is a modular, serverless automation pipeline. Eac
 5. **Report Compiler (Text Aggregator):** Takes the raw, filtered data and automatically formats it into clean, readable financial figures (e.g., converting raw integers into localized Nigerian Naira with proper comma placement).
 6. **Channel Router:** The final traffic controller. It simultaneously splits the finalized report into different formats tailored for specific delivery channels (Internal vs. Public).
 
-![The complete automation pipeline showing the linear flow from data ingestion and filtering to omnichannel routing.](image.png)
+![The complete automation pipeline showing the linear flow from data ingestion and filtering to omnichannel routing.](https://github.com/Fabelt14/AI-Automation/blob/main/Crypto%20Watcher%20with%20Lovable%20UI/Images/Figure%202.1%20Automation%20Pipeline.jpg)
 *Figure 1: The complete automation pipeline showing the linear flow from data ingestion and filtering to omnichannel routing.*
 
 ## Channel Delivery System
@@ -22,10 +22,10 @@ To ensure maximum reach and utility, the system distributes intelligence across 
 * **Internal Communications (Email):** Delivered via the Gmail API, this channel provides a detailed, structured format using HTML. It acts as the internal reporting mechanism for stakeholders to review market shifts in a clean, comprehensive layout.
 * **Public Engagement (X / Twitter):** Delivered via Buffer integration, this channel is optimized for audience growth and public alerting. Because X enforces strict character limits and rejects HTML, the system automatically sanitizes the payload, stripping code and formatting it into a punchy, plain-text alert that maximizes platform engagement.
 
-![The internal email report, cleanly formatted for rapid stakeholder review.](image.png)
+![The internal email report, cleanly formatted for rapid stakeholder review.](https://github.com/Fabelt14/AI-Automation/blob/main/Crypto%20Watcher%20with%20Lovable%20UI/Images/Figure%202.2%20The%20internal%20email%20report.jpg)
 *Figure 2: The internal email report, cleanly formatted for rapid stakeholder review.*
 
-![The sanitized, plain-text alert automatically optimized and published to the X timeline.](image.png)
+![The sanitized, plain-text alert automatically optimized and published to the X timeline.](https://github.com/Fabelt14/AI-Automation/blob/main/Crypto%20Watcher%20with%20Lovable%20UI/Images/Figure%202.3%20The%20X%20publish.jpg)
 *Figure 3: The sanitized, plain-text alert automatically optimized and published to the X timeline.*
 
 ## Executive Command Dashboard
@@ -34,7 +34,7 @@ To complement the automated push alerts, a centralized, web-based dashboard was 
 * **Business Impact:** While the automation pipeline alerts users to sudden changes, the dashboard provides a 24/7 visual command center. It empowers decision-makers to instantly view the top market assets, live prices, market cap, and total trading volume at a glance.
 * **Functionality:** Built with a modern, dark-mode interface, it connects directly to live market feeds. It features dynamic color-coding (green for positive growth, red for decline) to allow for immediate visual assessment of market health.
 
-![The live Executive Command Dashboard featuring dynamic metric tracking and direct market API integration.](image.png)
+![The live Executive Command Dashboard featuring dynamic metric tracking and direct market API integration.](https://github.com/Fabelt14/AI-Automation/blob/main/Crypto%20Watcher%20with%20Lovable%20UI/Images/Figure%202.4%20The%20live%20Executive%20Dashboard.jpg)
 *Figure 4: The live Executive Command Dashboard featuring dynamic metric tracking and direct market API integration.*
 
 ## Autonomous Operations (The Scheduler)
@@ -43,5 +43,5 @@ A system is only fully automated if it operates without human intervention. To a
 * **Business Impact:** This represents true "zero-touch" operation. By outsourcing the trigger mechanism to a dedicated scheduling server, we eliminate the need for manual button-clicking or dedicated staff monitoring.
 * **Functionality:** The CRON Job reliably pings the system's Webhook on a precise, continuous schedule. It ensures the market is scanned consistently, 24 hours a day, 7 days a week, guaranteeing no significant market movement is missed.
 
-![The external scheduling configuration that ensures the system operates 24/7 with zero human intervention.](image.png)
+![The external scheduling configuration that ensures the system operates 24/7 with zero human intervention.](https://github.com/Fabelt14/AI-Automation/blob/main/Crypto%20Watcher%20with%20Lovable%20UI/Images/Figure%202.5%20The%20external%20scheduling.jpg)
 *Figure 5: The external scheduling configuration that ensures the system operates 24/7 with zero human intervention.*
